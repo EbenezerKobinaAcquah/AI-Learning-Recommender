@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Resources</title>
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        ul {
+            padding-left: 0;
+        }
+        li {
+            list-style: none;
+            background-color: white;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        img {
+            max-width: 150px;
+            margin-right: 20px;
+            border-radius: 10px;
+        }
+        .btn-back {
+            margin-top: 30px;
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Top Free Courses on <span class="text-capitalize"><mark>{{ request.form['topic'] }}</mark></span></h1>
+
+        <h2 class="text-primary">Udemy Courses:</h2>
+        <ul>
+        {% for course in udemy %}
+            <li>
+                <img src="{{ course.Course_Picture }}" alt="{{ course.Title }} thumbnail">
+                <div>
+                    <strong>{{ course.Title }}</strong><br>
+                    <small>Author: {{ course.Author }}</small><br>
+                    <a href="{{ course.Link }}" target="_blank" class="btn btn-outline-info btn-sm mt-2">Take Course</a>
+                </div>
+            </li>
+        {% endfor %}
+        </ul>
+
+        <h2 class="text-primary">YouTube Videos:</h2>
+        <ul>
+        {% for video in youtube %}
+            <li>
+                <img src="https://img.youtube.com/vi/{{ video.Link.split('=')[-1] }}/hqdefault.jpg" alt="{{ video.Title }} thumbnail">
+                <div>
+                    <strong>{{ video.Title }}</strong><br>
+                    <small>Author: {{ video.Author }}</small><br>
+                    Duration: {{ video.Duration }}<br>
+                    Views: {{ video.Views }}<br>
+                    <a href="{{ video.Link }}" target="_blank" class="btn btn-outline-success btn-sm mt-2">Watch Video</a>
+                </div>
+            </li>
+        {% endfor %}
+        </ul>
+
+        <h2 class="text-primary">Coursera Courses:</h2>
+        <ul>
+        {% for course in coursera %}
+            <li>
+                <img src="{{ course.Course_Picture }}" alt="{{ course.Title }} thumbnail">
+                <div>
+                    <strong>{{ course.Title }}</strong><br>
+                    <small>Description: {{ course.Description }}</small><br>
+                    <a href="{{ course.Link }}" target="_blank" class="btn btn-outline-warning btn-sm mt-2">Enroll Course</a>
+                </div>
+            </li>
+        {% endfor %}
+        </ul>
+
+        <a href="/" class="btn btn-secondary btn-back">Go Back</a>
+    </div>
+
+    <!-- Bootstrap JS and dependencies (optional for more interactivity) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

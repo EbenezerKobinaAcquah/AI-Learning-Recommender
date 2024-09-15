@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Something New</title>
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+            max-width: 600px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        form {
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>What do you want to learn today?</h1>
+        <form action="/Resources" method="POST">
+            <div class="mb-3">
+                <label for="topic" class="form-label">Enter a topic:</label>
+                <input type="text" id="topic" name="topic" class="form-control" placeholder="e.g., React, Python, AI" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Search</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Learning Resources Finder</p>
+        <p>❤️ Ebenezer Kobina Acquah</p>
+    </footer>
+    
+    <!-- Bootstrap JS and dependencies (optional for more interactivity) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
